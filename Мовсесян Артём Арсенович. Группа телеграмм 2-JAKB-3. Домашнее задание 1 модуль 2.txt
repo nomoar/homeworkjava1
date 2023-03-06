@@ -1,0 +1,150 @@
+Класс Студента:
+public class Student {
+    private int age;
+    private String name;
+    private String surname;
+
+    public Student(int age, String name, String surname) {
+        this.age = age;
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public void sayHello() {
+        System.out.println("Привет, меня зовут " + name + " " + surname + ", мне " + age + " лет");
+    }
+
+    public void birthday() {
+        age++;
+        System.out.println("У меня день рождение, теперь мне " + age + " лет!");
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+}
+
+
+
+
+
+Класс Преподователя:
+public class Teacher {
+    private Student[] students;
+    private String name;
+    private int age;
+
+    public Teacher(Student[] students, String name, int age) {
+        this.students = students;
+        this.name = name;
+        this.age = age;
+    }
+
+    public void showStudents() {
+        System.out.println("Ученики преподователя по имени " + name + ":");
+        for (Student student : students) {
+            System.out.println(student.getName() + " " + student.getSurname() + ", " + student.getAge());
+        }
+    }
+
+    public void studentMethods() {
+        System.out.println("Вызываем методы учеников преподователя по имени " + name + ":");
+        for (Student student : students) {
+            student.sayHello();
+            student.birthday();
+        }
+    }
+
+    public void sayHello() {
+        System.out.println("Здравствуйте, меня зовут " + name + ", мне " + age + " лет");
+    }
+
+    public void birthday() {
+        age++;
+        System.out.println("У меня день рождение, теперь мне " + age + " лет!");
+    }
+
+    public Student[] getStudents() {
+        return students;
+    }
+
+    public void setStudents(Student[] students) {
+        this.students = students;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+
+
+
+
+
+Классс Университета:
+public class University {
+    public static void main(String[] args) {
+        Student student1 = new Student(11, "Ваня", "Петров");
+        Student student2 = new Student(10, "Петя", "Семенов");
+        Student student3 = new Student(17, "Саша", "Королев");
+        Student student4 = new Student(8, "Оля", "Бобкина");
+        Student student5 = new Student(7, "Маша", "Коробкина");
+        Student student6 = new Student(16, "Катя", "Олд");
+        Student student7 = new Student(9, "Ашурбанапал", "Владимиров");
+
+        Teacher teacher1 = new Teacher(new Student[]{student1, student2, student3}, "Александр", 25);
+        Teacher teacher2 = new Teacher(new Student[]{student4, student5}, "Ирина", 32);
+        Teacher teacher3 = new Teacher(new Student[]{student6, student7}, "Илларион", 53);
+
+        teacher1.sayHello();
+        teacher1.birthday();
+        teacher1.showStudents();
+        teacher1.studentMethods();
+        System.out.println();
+
+        teacher2.sayHello();
+        teacher2.birthday();
+        teacher2.showStudents();
+        teacher2.studentMethods();
+        System.out.println();
+
+        teacher3.sayHello();
+        teacher3.birthday();
+        teacher3.showStudents();
+        teacher3.studentMethods();
+        System.out.println();
+    }
+}
